@@ -9,6 +9,9 @@ Radio-controlled robot for passing an obstacle course. Bot passed 3 out of 4 obs
 
 (тут будет норм фото робота) 
 
+Triangular wheels were used instead of round ones.  
+For better traction, thermal glue was applied along the wheels
+
 A video of the robot popping the balloon 
 
 https://github.com/bbbaaauuu/robot-bobot/assets/114235448/343317ef-ab40-43a2-bf0c-8ee1bfc98b0b
