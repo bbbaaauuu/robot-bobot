@@ -1,47 +1,40 @@
 # robot-bobot
-Radio-controlled robot for passing an obstacle course. Bot passed 3 out of 4 obstacles in 5.34 minutes (couldn't get on the slide)
+Radio-controlled robot for passing an obstacle course. Bot passed 3 out of 4 obstacles in 5.34 minutes  
+- [x] Marshmallow ocean
+- [ ] Foggy mountain
+- [x] Silent cave 
+- [x] Deadly balloon
 
 ![track](https://github.com/bbbaaauuu/robot-bobot/assets/114235448/8a640eca-46e9-4ef9-88c6-f8e20737fc17)
 
-CHANGE PHOTO
+(тут будет норм фото робота) 
 
-![robot bobot](https://github.com/bbbaaauuu/robot-bobot/assets/114235448/1b88d76b-3aa5-4ca7-8f99-e0311efabefb) 
-
-a video of the robot popping the balloon 
+A video of the robot popping the balloon 
 
 https://github.com/bbbaaauuu/robot-bobot/assets/114235448/343317ef-ab40-43a2-bf0c-8ee1bfc98b0b
 
-Components used:
+#### Components used:
 
-•	NRF;
+- NRF;  
+-	NRF+;  
+-	Motor Shield;  
+-	Arduino Leonardo/Amperka Iskra Neo;  
+-	Arduino Pro Micro;  
+-	x2 DC motor;  
+-	x2 battery 18650  
+-	joystick;   
+-	RGB LED matrix 4x4;  
+-	Powerbank.
 
-•	NRF+;
+#### Libraries installed:
 
-•	Motor Shield;
+-	RF24 by TMRh20;  
+-	NeoPixel by Adafruit.
 
-•	Arduino Leonardo/Amperka Iskra Neo;
+#### Bot code:
 
-•	Arduino Pro Micro;
-
-•	x2 DC motor;
-
-•	x2 battery 18650
-
-•	joystick; 
-
-•	RGB LED matrix 4x4;
-
-•	Powerbank.
-
-Libraries installed:
-
-•	RF24 by TMRh20;
-
-•	NeoPixel by Adafruit.
-
-BOT CODE:
-
-```#include <SPI.h>
+```C++
+#include <SPI.h>
 #include <nRF24L01.h>
 #include <RF24.h>
 #include <Adafruit_NeoPixel.h>
@@ -127,8 +120,42 @@ void loop() {
 }
 ```
 
+#### Joystick code:
 
-JOYSTICK CODE:
+```C++
+#include <SPI.h> //RF24 by TMRh20
+#include <nRF24L01.h>
+#include <RF24.h>
+
+#define VRx A0
+#define VRy A1
+
+RF24 radio(9, 10);
+int data[2];
+
+void setup(){
+   radio.begin();
+  radio.setChannel(15);
+  radio.setDataRate(RF24_1MBPS);
+  radio.setPALevel(RF24_PA_HIGH);
+  radio.openWritingPipe(0x1234567890LL);
+  radio.stopListening();
+}
+
+void loop(){
+
+   int valx = analogRead (VRx);
+   int valy = analogRead (VRy);
+   data[0] = valx;
+   data[1] = valy;
+   //data[2] = analogRead (A3);
+
+  radio.write(&data, sizeof(data));
+  delay(10);
+  Serial.println(data[0]);
+  Serial.println(data[1]);
+}
+```
 
 
 
