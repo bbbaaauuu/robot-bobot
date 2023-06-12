@@ -148,7 +148,6 @@ void loop(){
    int valy = analogRead (VRy);
    data[0] = valx;
    data[1] = valy;
-   //data[2] = analogRead (A3);
 
   radio.write(&data, sizeof(data));
   delay(10);
