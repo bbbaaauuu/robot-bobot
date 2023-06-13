@@ -7,7 +7,10 @@ Radio-controlled robot for passing an obstacle course. Bot passed 3 out of 4 obs
 
 ![track](https://github.com/bbbaaauuu/robot-bobot/assets/114235448/8a640eca-46e9-4ef9-88c6-f8e20737fc17)
 
-(тут будет норм фото робота) 
+![Untitled](https://github.com/bbbaaauuu/robot-bobot/assets/114235448/84125f4c-6159-4cf6-909d-382cea644c5b)
+
+![Untitledj](https://github.com/bbbaaauuu/robot-bobot/assets/114235448/f02f59c3-513e-4153-a621-0712a518b29b)
+
 
 Triangular wheels were used instead of round ones.  
 For better traction, thermal glue was applied along the wheels
